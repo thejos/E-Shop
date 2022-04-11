@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Welcome to E-Shop</title>
+    </h:head>
+    <h:body>
+        <h:panelGrid columns="2" cellpadding="20" cellspacing="20" width="500px">
+            <h3>WELCOME TO E-SHOP</h3>
+            <h:panelGroup>
+                <h:outputLink value="login.xhtml" rendered="${not loginBackingBean.loggedIn and not registerManagedBean.userCreated}">Login</h:outputLink><br/>
+                <h:outputLink value="register.xhtml" rendered="${not loginBackingBean.loggedIn or registerManagedBean.userCreated}">Sign up</h:outputLink><br/>
+                <h:outputLink value="shop.xhtml">Shop</h:outputLink>
+                <h:form>
+                    <h:commandLink action="${loginBackingBean.logout()}" rendered="${loginBackingBean.loggedIn}">Log out</h:commandLink>
+                </h:form>
+                <h:outputLink value="administration/home.xhtml" rendered="${loginBackingBean.loggedIn and loginBackingBean.administrator}">Administration</h:outputLink>
+            </h:panelGroup>
+        </h:panelGrid>
+        <h:outputText value="${loginBackingBean.message}" rendered="${loginBackingBean.loggedIn}"/>
+        <br/><br/>
+    </h:body>
+</html>
+

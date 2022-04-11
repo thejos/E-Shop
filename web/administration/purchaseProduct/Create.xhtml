@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PurchaseProductCreateDlg" widgetVar="PurchaseProductCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePurchaseProductTitle}">
+            <h:form id="PurchaseProductCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{purchaseProductController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePurchaseProductLabel_quantity}" for="quantity" />
+                        <p:inputText id="quantity" value="#{purchaseProductController.selected.quantity}" title="#{bundle.CreatePurchaseProductTitle_quantity}" required="true" requiredMessage="#{bundle.CreatePurchaseProductRequiredMessage_quantity}"/>
+                        <p:outputLabel value="#{bundle.CreatePurchaseProductLabel_productId}" for="productId" />
+                        <p:selectOneMenu id="productId" value="#{purchaseProductController.selected.productId}" required="true" requiredMessage="#{bundle.EditPurchaseProductRequiredMessage_productId}">
+                            <f:selectItems value="#{productController.itemsAvailableSelectOne}"
+                                           var="productIdItem"
+                                           itemValue="#{productIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreatePurchaseProductLabel_purchaseId}" for="purchaseId" />
+                        <p:selectOneMenu id="purchaseId" value="#{purchaseProductController.selected.purchaseId}" required="true" requiredMessage="#{bundle.EditPurchaseProductRequiredMessage_purchaseId}">
+                            <f:selectItems value="#{purchaseController.itemsAvailableSelectOne}"
+                                           var="purchaseIdItem"
+                                           itemValue="#{purchaseIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{purchaseProductController.create}" value="#{bundle.Save}" update="display,:PurchaseProductListForm:datalist,:growl" oncomplete="handleSubmit(args,'PurchaseProductCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PurchaseProductCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

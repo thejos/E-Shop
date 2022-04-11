@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PurchaseProductViewDlg" widgetVar="PurchaseProductViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPurchaseProductTitle}">
+            <h:form id="PurchaseProductViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{purchaseProductController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPurchaseProductLabel_purchaseProductId}"/>
+                        <h:outputText value="#{purchaseProductController.selected.purchaseProductId}" title="#{bundle.ViewPurchaseProductTitle_purchaseProductId}"/>
+                        <h:outputText value="#{bundle.ViewPurchaseProductLabel_quantity}"/>
+                        <h:outputText value="#{purchaseProductController.selected.quantity}" title="#{bundle.ViewPurchaseProductTitle_quantity}"/>
+                        <h:outputText value="#{bundle.ViewPurchaseProductLabel_productId}"/>
+                        <h:outputText value="#{purchaseProductController.selected.productId}" title="#{bundle.ViewPurchaseProductTitle_productId}"/>
+                        <h:outputText value="#{bundle.ViewPurchaseProductLabel_purchaseId}"/>
+                        <h:outputText value="#{purchaseProductController.selected.purchaseId}" title="#{bundle.ViewPurchaseProductTitle_purchaseId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PurchaseProductViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

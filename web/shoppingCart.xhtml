@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cart</title>
+    </h:head>
+    <h:body>
+        <br/>
+        <h:outputLabel>Items in the cart: <h:outputText id="cartLabel" value="#{productManagedBean.cartItemsQuantity}" style="font-size: 20px; font-weight: bold"/> </h:outputLabel>
+        <br/>
+        <h:dataTable id="cartTable" style="border-collapse: collapse" border="1" cellpadding="10" value="#{productManagedBean.shoppingCartItems}" var="item">
+            <h:column>
+                <f:facet name="header">Product name</f:facet>
+                    #{item.product.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Product price</f:facet>
+                    #{item.product.price}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Quantity</f:facet>
+                    #{item.quantity}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price total</f:facet>
+                    #{item.totalPrice}
+            </h:column>
+        </h:dataTable>
+        
+        <br/>
+        <h:outputLabel>Grand total: <h:outputText id="totalSum" value="#{productManagedBean.grandTotal}" style="font-size: 22px; font-weight: bold"/> </h:outputLabel>
+        <br/><br/>
+        <h:form>
+            <h:commandLink actionListener="#{productManagedBean.emptyCart()}" value="Empty">
+                <f:ajax execute="@form" render="cartTable cartLabel totalSum"/>
+            </h:commandLink>&nbsp;&nbsp;the cart
+        </h:form>
+        <br/><br/>
+        <h:panelGrid columns="3" cellpadding="20">
+            <h:outputLink value="index.xhtml">E-Shop home page</h:outputLink>
+            <h:outputLink value="shop.xhtml">Continue shopping</h:outputLink>
+            <h:outputLink value="checkout.xhtml">Proceed to checkout</h:outputLink>
+        </h:panelGrid>
+    </h:body>
+</html>
+

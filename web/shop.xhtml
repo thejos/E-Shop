@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>E-Shop</title>
+    </h:head>
+    <h:body>
+        <h3>Product Section</h3>
+
+        <!--
+        <h:outputLink value="login.xhtml" rendered="${not loginBackingBean.loggedIn and not registerManagedBean.userCreated}">Login</h:outputLink><br/>
+        <h:outputLink value="register.xhtml" rendered="${not loginBackingBean.loggedIn or registerManagedBean.userCreated}">Sign up</h:outputLink>
+        -->
+        <h:panelGrid columns="2" cellpadding="10">
+            <h:outputLink value="index.xhtml">E-Shop home page</h:outputLink>
+
+            <h:form>
+                <h:commandLink action="${loginBackingBean.logout()}" rendered="${loginBackingBean.loggedIn}">Log out</h:commandLink>
+            </h:form>
+        </h:panelGrid>
+        <br/>
+        <h:form>
+            <h:dataTable style="border-collapse: collapse" border="1" cellpadding="15" value="#{productManagedBean.allProducts}" var="product">
+                <h:column>
+                    <f:facet name="header">Product name</f:facet>
+                        #{product.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Product price</f:facet>
+                        #{product.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cart</f:facet>
+                    <h:commandButton value="Add product" actionListener="#{productManagedBean.addProductToCart(product)}">
+                        <f:ajax execute="@form" render="cartTable cartLabel"/>
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <h:outputLabel value="Quantity &nbsp;"/>
+            <h:selectOneMenu value="#{productManagedBean.quantity}">
+                <f:selectItem itemValue="1" itemLabel="1"/>
+                <f:selectItem itemValue="2" itemLabel="2"/>
+                <f:selectItem itemValue="3" itemLabel="3"/>
+                <f:selectItem itemValue="4" itemLabel="4"/>
+                <f:selectItem itemValue="5" itemLabel="5"/>
+            </h:selectOneMenu>
+            <br/>
+        </h:form>
+        <br/>
+        <h4>Cart items: <h:outputText id="cartLabel" value="#{productManagedBean.cartItemsQuantity}"/> </h4>
+        <br/>
+
+        <h:panelGrid columns="2">
+            <h:outputLink value="shoppingCart.xhtml">Review</h:outputLink>
+            <h:outputLabel value="&nbsp;the items in your shopping cart"/>
+        </h:panelGrid>
+        <br/>
+
+    </h:body>
+</html>
+
