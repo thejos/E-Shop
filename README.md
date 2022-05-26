@@ -11,6 +11,7 @@
 
 :black_small_square: JDBC driver for MySQL  (MySQL Connector/J)<sup>&nbsp;_1_</sup>  
 &emsp;&emsp;Download the connector from [here](http://dev.mysql.com/downloads/connector/j "MySQL homepage") or from [here](https://mvnrepository.com/artifact/mysql/mysql-connector-java "Maven repository").  
+&emsp;&emsp;Place downloaded library in `/web/WEB-INF/ext_libraries` project folder.   
 &emsp;&emsp;Learn [how to](https://www.geekinsta.com/how-to-connect-java-application-with-mysql-using-netbeans/#configuring-the-netbeans-project) add MySQL connector jar file to the current project  using NetBeans.  
 
 :black_small_square: GlassFish Java application server - Full Platform edition  
@@ -31,7 +32,9 @@
 
 
 :black_small_square: Build the project.   
-:black_small_square: Deploy the `war` artifact to a running server and enable the application.  
+:black_small_square: Deploy the `war` artifact to a running server and enable the application.   
+:black_small_square: Access the E-Shop by entering `http://localhost:8080/EShopDemo/` in your web browser.   
+:black_small_square: Get access to administration section via login page by providing `admin` as username and password.
 <br>
 
 
