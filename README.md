@@ -5,7 +5,8 @@
 &emsp;&emsp;[Read/download](https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/) MySQL Installation Guide.
 
 :black_small_square: A database the application communicates with  
-&emsp;&emsp;To import required database into MySQL server run the [`web\WEB-INF\ext_libraries\sql\eshoptest.sql`](web/WEB-INF/ext_libraries/sql/ "show the file location") SQL script.  
+&emsp;&emsp;To import required database into MySQL server run the [`web\WEB-INF\ext_libraries\sql\eshoptest.sql`](web/WEB-INF/ext_libraries/sql/ "show the file location")   
+&emsp;&emsp;SQL script.  
 &emsp;&emsp;Learn how to import data/database in MySQL via [mysqlimport](https://dev.mysql.com/doc/refman/8.0/en/mysqlimport.html) client or via [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html).
 
 :black_small_square: JDBC driver for MySQL  (MySQL Connector/J)<sup>&nbsp;_1_</sup>  
@@ -19,7 +20,18 @@
 <br>
 :black_small_square: PrimeFaces for JavaServerFaces (JSF)   
 &emsp;&emsp;PrimeFaces is a popular open source framework for JavaServerFaces featuring over 100 components.   
-&emsp;&emsp;Download PrimeFaces ***5.0*** [here](https://mvnrepository.com/artifact/org.primefaces/primefaces/5.0) or [here](https://www.primefaces.org/downloads/)   
-<br>   
-&nbsp;<sup>_1_</sup> _<sub>During the application creation MySQL Community Server ***version 8.0.18*** and MySQL Connector/J ***version 8.0.19*** were used.<sub>_
+&emsp;&emsp;Download PrimeFaces ***5.0*** from [here](https://mvnrepository.com/artifact/org.primefaces/primefaces/5.0) or from [here](https://www.primefaces.org/downloads/)   
+&emsp;&emsp;Download aggregate PrimeFaces themes jar file (***all-themes-1.0.10.jar***) from [here](https://mvnrepository.com/artifact/org.primefaces.themes/all-themes/1.0.10) or from [here](https://repository.primefaces.org/org/primefaces/themes/all-themes/1.0.10/)   
+&emsp;&emsp;Place downladed libraries in `/web/WEB-INF/ext_libraries` project folder. 
+<br>      
+&nbsp;<sup>_1_</sup> _<sub>During the application creation MySQL Community Server ***version 8.0.18*** and MySQL Connector/J ***version 8.0.19*** were used.<sub>_   
+<br>
+
+## GET STARTED WITH THE PROJECT  
+
+
+:black_small_square: Build the project   
+:black_small_square: Deploy the `war` artifact to a running server and enable the application  
+<br>
+
 
